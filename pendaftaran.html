@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran — Sekolah Santo Andreas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pendaftaran.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="nav-bar nav-scrolled">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html"><img src="https://i.ibb.co.com/V033MvMm/St-Andreas-Logo.png" alt="Logo"
+                        width="220px" height="55px"></a>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item"><a href="index.html" class="nav-link">Halaman Utama</a></li>
+                <li class="nav-item">
+                    <a href="tentang-kami.html" class="nav-link">Tentang Kami <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="tentang-kami.html#visi-misi">Visi &amp; Misi</a>
+                        <a href="tentang-kami.html#sejarah">Sejarah</a>
+                        <a href="tentang-kami.html#fasilitas">Fasilitas</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Jenjang Pendidikan <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="nursery.html">Nursery &amp; Playground</a>
+                        <a href="tk.html">TK</a>
+                        <a href="sd.html">SD</a>
+                        <a href="smp.html">SMP</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="pendaftaran.html" class="nav-link">Pendaftaran</a></li>
+                <li class="nav-item"><a href="kalender-akademik.html" class="nav-link">Kalender Akademik</a></li>
+                <li class="nav-item"><a href="berita.html" class="nav-link">Berita</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="https://www.facebook.com/sstandreas" class="social-link"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/sstandreas/" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UC2fmVdeHtxnXl1LMYu7WAAQ" class="social-link"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+            <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="reg-hero">
+        <div class="reg-hero-bg">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjheDDI-EvefCKbtGy7Cgein7pGQ1oAjo5MC4snxcHahwjwsJygV4PCNOku_F252XWL1M4MhiS6wtp5xzCWCb6z7PKpHZ2p48iuRCCNx-EJRmtHU6ajCnmcTn_Om5r4NvixSwUjliHJDtE/w1200-h630-p-k-no-nu/IMG_2775.jpg"
+                alt="Hero">
+        </div>
+        <div class="reg-hero-overlay"></div>
+        <div class="reg-hero-grain"></div>
+        <div class="reg-hero-content">
+            <p class="reg-hero-eyebrow"><i class="fas fa-star"></i> Tahun Ajaran 2025 / 2026</p>
+            <h1 class="reg-hero-title">Mulai Perjalanan<br><em>Luar Biasa</em> Mereka.</h1>
+            <p class="reg-hero-sub">Daftarkan putra-putri Anda ke Sekolah Santo Andreas — rumah kedua yang penuh kasih,
+                ilmu, dan karakter sejati.</p>
+            <div class="reg-hero-pills">
+                <a href="#tk" class="reg-pill">TK</a>
+                <a href="#sd" class="reg-pill">SD</a>
+                <a href="#smp" class="reg-pill">SMP</a>
+            </div>
+        </div>
+        <div class="reg-hero-scroll"><span>Gulir ke bawah</span><i class="fas fa-chevron-down"></i></div>
+    </header>
+
+    <!-- INTRO STRIP -->
+    <div class="reg-intro-strip">
+        <div class="reg-intro-item"><i class="fas fa-calendar-check"></i><span>Pendaftaran Dibuka</span><strong>Jan –
+                Mar 2026</strong></div>
+        <div class="reg-intro-divider"></div>
+        <div class="reg-intro-item"><i class="fas fa-users"></i><span>Kuota Terbatas</span><strong>Per Jenjang</strong>
+        </div>
+        <div class="reg-intro-divider"></div>
+        <div class="reg-intro-item"><i class="fas fa-phone"></i><span>Info Lebih Lanjut</span><strong>021 – 580
+                4058</strong></div>
+        <div class="reg-intro-divider"></div>
+        <div class="reg-intro-item"><i class="fas fa-map-marker-alt"></i><span>Lokasi</span><strong>Kedoya, Jakarta
+                Barat</strong></div>
+    </div>
+
+    <!-- PROGRAMS -->
+    <main class="reg-main">
+
+        <!-- TK -->
+        <section class="reg-program" id="tk">
+            <div class="reg-program-banner">
+                <div class="reg-program-bg"><img src="https://i.ytimg.com/vi/SfdqHNcWOgw/maxresdefault.jpg" alt="TK">
+                </div>
+                <div class="reg-program-overlay"
+                    style="background:linear-gradient(135deg,rgba(5,78,50,0.90) 0%,rgba(13,158,110,0.60) 100%)"></div>
+                <span class="reg-program-watermark">TK</span>
+                <div class="reg-program-banner-content">
+                    <div class="reg-program-tag">Jenjang 01</div>
+                    <h2 class="reg-program-name">Taman Kanak-Kanak</h2>
+                    <p class="reg-program-tagline">Usia 4 – 6 tahun &nbsp;·&nbsp; Fondasi Pertama si Kecil</p>
+                    <div class="reg-program-banner-actions">
+                        <a href="#tk-form" class="reg-apply-btn"><i class="fas fa-paper-plane"></i> Apply Now!</a>
+                        <button class="reg-expand-btn" data-target="tk-details" aria-expanded="false">
+                            <span>Lihat Info Lengkap</span>
+                            <span class="reg-expand-icon"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reg-details" id="tk-details">
+                <div class="reg-details-inner">
+                    <div class="reg-details-grid">
+                        <div class="reg-details-col">
+                            <h3 class="reg-details-title"><i class="fas fa-info-circle"></i> Tentang Program TK</h3>
+                            <p class="reg-details-text">Program TK Santo Andreas dirancang untuk membantu anak usia 4–6
+                                tahun membangun fondasi belajar yang kuat melalui pendekatan bermain yang terarah.
+                                Dengan rasio guru–murid yang kecil, setiap anak mendapat perhatian individual penuh
+                                kasih.</p>
+                            <div class="reg-highlight-row">
+                                <div class="reg-highlight"><i class="fas fa-child"></i><span>TK A — 4–5 tahun</span>
+                                </div>
+                                <div class="reg-highlight"><i class="fas fa-child"></i><span>TK B — 5–6 tahun</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reg-details-col">
+                            <h3 class="reg-details-title"><i class="fas fa-file-alt"></i> Persyaratan Dokumen</h3>
+                            <ul class="reg-doc-list">
+                                <li><i class="fas fa-check-circle"></i> Fotokopi Akta Kelahiran (2 lembar)</li>
+                                <li><i class="fas fa-check-circle"></i> Fotokopi Kartu Keluarga (2 lembar)</li>
+                                <li><i class="fas fa-check-circle"></i> Fotokopi KTP Orang Tua (2 lembar)</li>
+                                <li><i class="fas fa-check-circle"></i> Pas foto berwarna 3×4 (4 lembar)</li>
+                                <li><i class="fas fa-check-circle"></i> Surat Baptis (bagi yang Katolik)</li>
+                                <li><i class="fas fa-check-circle"></i> Formulir pendaftaran yang telah diisi</li>
+                            </ul>
+                        </div>
+                        <div class="reg-details-col">
+                            <h3 class="reg-details-title"><i class="fas fa-route"></i> Alur Pendaftaran</h3>
+                            <ol class="reg-steps">
+                                <li><span class="reg-step-num">01</span>
+                                    <div><strong>Ambil Formulir</strong>
+                                        <p>Kunjungi kantor sekolah atau unduh dari website</p>
+                                    </div>
+                                </li>
+                                <li><span class="reg-step-num">02</span>
+                                    <div><strong>Lengkapi Dokumen</strong>
+                                        <p>Siapkan semua berkas yang diperlukan</p>
+                                    </div>
+                                </li>
+                                <li><span class="reg-step-num">03</span>
+                                    <div><strong>Serahkan Berkas</strong>
+                                        <p>Datang pada jam operasional sekolah</p>
+                                    </div>
+                                </li>
+                                <li><span class="reg-step-num">04</span>
+                                    <div><strong>Tes Observasi</strong>
+                                        <p>Anak mengikuti sesi observasi singkat</p>
+                                    </div>
+                                </li>
+                                <li><span class="reg-step-num">05</span>
+                                    <div><strong>Pengumuman</strong>
+                                        <p>Hasil dalam 3–5 hari kerja</p>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="reg-details-col">
+                            <h3 class="reg-details-title"><i class="fas fa-sparkles"></i> Keunggulan Program</h3>
+                            <div class="reg-feature-cards">
+                                <div class="reg-feature-card"><i class="fas fa-palette"></i><span>Seni &
+                                        Kreativitas</span></div>
+                                <div class="reg-feature-card"><i class="fas fa-music"></i><span>Musik & Gerak</span>
+                                </div>
+                                <div class="reg-feature-card"><i class="fas fa-bible"></i><span>Nilai Kristiani</span>
+                                </div>
+                                <div class="reg-feature-card"><i class="fas fa-language"></i><span>Bahasa Inggris</span>
+                                </div>
+                                <div class="reg-feature-card"><i class="fas fa-apple-alt"></i><span>Gizi Sehat</span>
+                                </div>
+                                <div class="reg-feature-card"><i class="fas fa-running"></i><span>Motorik &
+                                        Olahraga</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reg-cta-bar" id="tk-form">
+                        <div class="reg-cta-text">
+                            <h3>Siap Mendaftarkan si Kecil?</h3>
+                            <p>Hubungi kami untuk memulai proses pendaftaran TK Santo Andreas.</p>
+                        </div>
+                        <div class="reg-cta-actions">
+                            <a href="tel:02158040580" class="reg-cta-btn reg-cta-btn--primary"><i
+                                    class="fas fa-phone"></i> Hubungi Sekarang</a>
+                            <a href="https://wa.me/6221580040580" class="reg-cta-btn reg-cta-btn--wa"><i
+                                    class="fab fa-whatsapp"></i> WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SD -->
+        <section class="reg-program reg-program--alt" id="sd">
+            <div class="reg-program-banner">
+                <div class="reg-program-bg"><img
+                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjheDDI-EvefCKbtGy7Cgein7pGQ1oAjo5MC4snxcHahwjwsJygV4PCNOku_F252XWL1M4MhiS6wtp5xzCWCb6z7PKpHZ2p48iuRCCNx-EJRmtHU6ajCnmcTn_Om5r4NvixSwUjliHJDtE/w1200-h630-p-k-no-nu/IMG_2775.jpg"
+                        alt="SD"></div>
+                <div class="reg-program-overlay"
+                    style="background:linear-gradient(135deg,rgba(2,45,100,0.90) 0%,rgba(8,120,212,0.60) 100%)"></div>
+                <span class="reg-program-watermark">SD</span>
+                <div class="reg-program-banner-content">
+                    <div class="reg-program-tag">Jenjang 02</div>
+                    <h2 class="reg-program-name">Sekolah Dasar</h2>
+                    <p class="reg-program-tagline">Kelas 1 – 6 &nbsp;·&nbsp; Enam Tahun Membentuk Karakter</p>
+                    <div class="reg-program-banner-actions">
+                        <a href="#sd-form" class="reg-apply-btn"><i class="fas fa-paper-plane"></i> Apply Now!</a>
+                        <button class="reg-expand-btn" data-target="sd-details" aria-expanded="false">
+                            <span>Lihat Info Lengkap</span>
+                            <span class="reg-expand-icon"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reg-details" id="sd-details">
+                <div class="reg-details-inner">
+                    <div class="reg-details-grid">
+                        <div class="reg-details-col">
+                            <h3 class="reg-details-title"><i class="fas fa-info-circle"></i> Tentang Program SD</h3>
+                            <p class="reg-details-text">Jenjang SD Santo Andreas menggunakan Kurikulum Merdeka dengan
+                                pendekatan holistik — memadukan akademik unggul, pembentukan karakter Kristiani, dan
+                                pengembangan bakat melalui ekstrakurikuler yang beragam dan bermakna.</p>
+                            <div class="reg-highlight-row">
+                                <div class="reg-highlight"><i class="fas fa-book-open"></i><span>Kelas 1–3
+                                        (Rendah)</span></div>
+                                <div class="reg-highlight"><i class="fas fa-book-open"></i><span>Kelas 4–6
+                                        (Tinggi)</span></div>
+                            </div>
+                        </div>
+                        <div class="reg-details-col">
+                            <h3 class="reg-details-title"><i class="fas fa-file-alt"></i> Persyaratan Dokumen</h3>
+                            <ul class="reg-doc-list">
+                                <li><i class="fas fa-check-circle"></i> Fotokopi Akta Kelahiran (2 lembar)</li>
+                                <li><i class="fas fa-check-circle"></i> Fotokopi Kartu Keluarga (2 lembar)</li>
+                                <li><i class="fas fa-check-circle"></i> Fotokopi KTP Orang Tua (2 lembar)</li>
+                                <li><i class="fas fa-check-circle"></i> Rapor TK / Surat Keterangan Lulus TK</li>
+                                <li><i class="fas fa-check-circle"></i> Pas foto berwarna 3×4 (4 lembar)</li>
+                                <li><i class="fas fa-check-circle"></i> Surat Baptis (bagi yang Katolik)</li>
+                                <li><i class="fas fa-check-circle"></i> Sertifikat prestasi (jika ada)</li>
+                            </ul>
+                        </div>
+                        <div class="reg-details-col">
+                            <h3 class="reg-details-title"><i class="fas fa-route"></i> Alur Pendaftaran</h3>
+                            <ol class="reg-steps">
+                                <li><span class="reg-step-num">01</span>
+                                    <div><strong>Daftar Online / Offline</strong>
+                                        <p>Isi formulir atau kunjungi sekolah</p>
+                                    </div>
+                                </li>
+                                <li><span class="reg-step-num">02</span>
+                                    <div><strong>Lengkapi Dokumen</strong>
+                                        <p>Serahkan semua berkas persyaratan</p>
+                                    </div>
+                                </li>
+                                <li><span class="reg-step-num">03</span>
+                                    <div><strong>Tes Masuk</strong>
+                                        <p>Tes membaca, menulis, berhitung dasar</p>
+                                    </div>
+                                </li>
+                                <li><span class="reg-step-num">04</span>
+                                    <div><strong>Wawancara</strong>
+                                        <p>Sesi singkat bersama orang tua & anak</p>
+                                    </div>
+                                </li>
+                                <li><span class="reg-step-num">05</span>
+                                    <div><strong>Daftar Ulang</strong>
+                                        <p>Konfirmasi & pembayaran administrasi</p>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="reg-details-col">
+                            <h3 class="reg-details-title"><i class="fas fa-sparkles"></i> Keunggulan Program</h3>
+                            <div class="reg-feature-cards">
+                                <div class="reg-feature-card"><i class="fas fa-flask"></i><span>Lab Sains</span></div>
+                                <div class="reg-feature-card"><i class="fas fa-laptop"></i><span>Lab Komputer</span>
+                                </div>
+                                <div class="reg-feature-card"><i class="fas fa-trophy"></i><span>Olimpiade</span></div>
+                                <div class="reg-feature-card"><i class="fas fa-globe"></i><span>Bahasa Inggris</span>
+                                </div>
+                                <div class="reg-feature-card"><i class="fas fa-futbol"></i><span>Olahraga</span></div>
+                                <div class="reg-feature-card"><i class="fas fa-church"></i><span>Rohani</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reg-cta-bar" id="sd-form">
+                        <div class="reg-cta-text">
+                            <h3>Daftarkan Anak Anda ke SD Santo Andreas</h3>
+                            <p>Tim kami siap membantu dari awal hingga selesai.</p>
+                        </div>
+                        <div class="reg-cta-actions">
+                            <a href="tel:02158040580" class="reg-cta-btn reg-cta-btn--primary"><i
+                                    class="fas fa-phone"></i> Hubungi Sekarang</a>
+                            <a href="https://wa.me/6221580040580" class="reg-cta-btn reg-cta-btn--wa"><i
+                                    class="fab fa-whatsapp"></i> WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SMP -->
+        <section class="reg-program" id="smp">
+            <div class="reg-program-banner">
+                <div class="reg-program-bg"><img
+                        src="https://tyrande17.wordpress.com/wp-content/uploads/2015/01/img_2841.jpg" alt="SMP"></div>
+                <div class="reg-program-overlay"
+                    style="background:linear-gradient(135deg,rgba(40,10,80,0.90) 0%,rgba(100,50,180,0.60) 100%)"></div>
+                <span class="reg-program-watermark">SMP</span>
+                <div class="reg-program-banner-content">
+                    <div class="reg-program-tag">Jenjang 03</div>
+                    <h2 class="reg-program-name">Sekolah Menengah Pertama</h2>
+                    <p class="reg-program-tagline">Kelas 7 – 9 &nbsp;·&nbsp; Mempersiapkan Pemimpin Masa Depan</p>
+                    <div class="reg-program-banner-actions">
+                        <a href="#smp-form" class="reg-apply-btn"><i class="fas fa-paper-plane"></i> Apply Now!</a>
+                        <button class="reg-expand-btn" data-target="smp-details" aria-expanded="false">
+                            <span>Lihat Info Lengkap</span>
+                            <span class="reg-expand-icon"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reg-details" id="smp-details">
+                <div class="reg-details-inner">
+                    <div class="reg-details-grid">
+                        <div class="reg-details-col">
+                            <h3 class="reg-details-title"><i class="fas fa-info-circle"></i> Tentang Program SMP</h3>
+                            <p class="reg-details-text">SMP Santo Andreas mempersiapkan siswa secara akademik dan mental
+                                untuk menghadapi tantangan pendidikan lanjutan. Program OSIS, ekskul aktif, dan retreat
+                                rohani memperkuat karakter dan jiwa kepemimpinan sejati.</p>
+                            <div class="reg-highlight-row">
+                                <div class="reg-highlight"><i class="fas fa-user-graduate"></i><span>Kelas 7 (Siswa
+                                        Baru)</span></div>
+                                <div class="reg-highlight"><i class="fas fa-exchange-alt"></i><span>Pindahan Kelas
+                                        7–9</span></div>
+                            </div>
+                        </div>
+                        <div class="reg-details-col">
+                            <h3 class="reg-details-title"><i class="fas fa-file-alt"></i> Persyaratan Dokumen</h3>
+                            <ul class="reg-doc-list">
+                                <li><i class="fas fa-check-circle"></i> Fotokopi Akta Kelahiran (2 lembar)</li>
+                                <li><i class="fas fa-check-circle"></i> Fotokopi Kartu Keluarga (2 lembar)</li>
+                                <li><i class="fas fa-check-circle"></i> Fotokopi KTP Orang Tua (2 lembar)</li>
+                                <li><i class="fas fa-check-circle"></i> Rapor SD kelas 4–6 (asli & kopi)</li>
+                                <li><i class="fas fa-check-circle"></i> Ijazah & SKHUN SD</li>
+                                <li><i class="fas fa-check-circle"></i> Pas foto berwarna 3×4 (4 lembar)</li>
+                                <li><i class="fas fa-check-circle"></i> Sertifikat prestasi (jika ada)</li>
+                                <li><i class="fas fa-check-circle"></i> Surat Rekomendasi Kepala SD</li>
+                            </ul>
+                        </div>
+                        <div class="reg-details-col">
+                            <h3 class="reg-details-title"><i class="fas fa-route"></i> Alur Pendaftaran</h3>
+                            <ol class="reg-steps">
+                                <li><span class="reg-step-num">01</span>
+                                    <div><strong>Pendaftaran Online</strong>
+                                        <p>Isi formulir di website atau datang langsung</p>
+                                    </div>
+                                </li>
+                                <li><span class="reg-step-num">02</span>
+                                    <div><strong>Seleksi Berkas</strong>
+                                        <p>Verifikasi dokumen oleh pihak sekolah</p>
+                                    </div>
+                                </li>
+                                <li><span class="reg-step-num">03</span>
+                                    <div><strong>Tes Akademik</strong>
+                                        <p>Matematika, IPA, Bahasa Indonesia & Inggris</p>
+                                    </div>
+                                </li>
+                                <li><span class="reg-step-num">04</span>
+                                    <div><strong>Psikotes & Wawancara</strong>
+                                        <p>Asesmen minat, bakat & kepribadian</p>
+                                    </div>
+                                </li>
+                                <li><span class="reg-step-num">05</span>
+                                    <div><strong>Pengumuman & Daftar Ulang</strong>
+                                        <p>Konfirmasi kelulusan & administrasi</p>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="reg-details-col">
+                            <h3 class="reg-details-title"><i class="fas fa-sparkles"></i> Keunggulan Program</h3>
+                            <div class="reg-feature-cards">
+                                <div class="reg-feature-card"><i class="fas fa-users-cog"></i><span>OSIS Aktif</span>
+                                </div>
+                                <div class="reg-feature-card"><i class="fas fa-microscope"></i><span>Lab Lengkap</span>
+                                </div>
+                                <div class="reg-feature-card"><i class="fas fa-praying-hands"></i><span>Retreat
+                                        Rohani</span></div>
+                                <div class="reg-feature-card"><i class="fas fa-medal"></i><span>Kompetisi</span></div>
+                                <div class="reg-feature-card"><i class="fas fa-hands-helping"></i><span>Sosial &
+                                        Peduli</span></div>
+                                <div class="reg-feature-card"><i class="fas fa-chalkboard"></i><span>Kelas
+                                        Unggulan</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reg-cta-bar" id="smp-form">
+                        <div class="reg-cta-text">
+                            <h3>Daftarkan ke SMP Santo Andreas</h3>
+                            <p>Masa depan cerah si remaja dimulai dari sini.</p>
+                        </div>
+                        <div class="reg-cta-actions">
+                            <a href="tel:02158040580" class="reg-cta-btn reg-cta-btn--primary"><i
+                                    class="fas fa-phone"></i> Hubungi Sekarang</a>
+                            <a href="https://wa.me/6221580040580" class="reg-cta-btn reg-cta-btn--wa"><i
+                                    class="fab fa-whatsapp"></i> WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BOTTOM CTA -->
+    <div class="reg-bottom-cta">
+        <div class="reg-bottom-cta-bg"></div>
+        <div class="reg-bottom-cta-content">
+            <p class="reg-bottom-eyebrow">Masih Ada Pertanyaan?</p>
+            <h2 class="reg-bottom-title">Kami Siap Membantu Anda</h2>
+            <p class="reg-bottom-desc">Datang langsung ke sekolah atau hubungi kami. Tim kami dengan senang hati
+                menjawab setiap pertanyaan Anda.</p>
+            <div class="reg-bottom-actions">
+                <a href="tel:02158040580" class="reg-bottom-btn reg-bottom-btn--primary"><i class="fas fa-phone"></i>
+                    021 – 580 4058</a>
+                <a href="index.html" class="reg-bottom-btn reg-bottom-btn--ghost"><i class="fas fa-home"></i> Kembali ke
+                    Beranda</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+
+        <!-- Background decoration -->
+        <div class="footer-bg-ring ring-a"></div>
+        <div class="footer-bg-ring ring-b"></div>
+
+        <div class="footer-inner">
+
+            <!-- ── Col 1: Brand ── -->
+            <div class="footer-col footer-col--brand">
+                <img src="https://i.ibb.co.com/V033MvMm/St-Andreas-Logo.png" alt="Logo Sekolah Santo Andreas"
+                    class="footer-logo" style="width: 400px;">
+                <p class="footer-tagline">
+                    Gembira · Cerdas · Peduli
+                </p>
+                <p class="footer-about">
+                    Lembaga pendidikan Katolik di Jakarta Barat yang telah membentuk generasi unggul sejak 1990 — dari
+                    Nursery hingga SMP.
+                </p>
+                <!-- Social -->
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/sstandreas" class="footer-social" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sstandreas/" class="footer-social" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UC2fmVdeHtxnXl1LMYu7WAAQ" class="footer-social"
+                        aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- ── Col 2: Tentang Kami ── -->
+            <div class="footer-col">
+                <h4 class="footer-col-title">Tentang Kami</h4>
+                <ul class="footer-links">
+                    <li><a href="tentang-kami.html" class="footer-link footer-link--parent">
+                            <i class="fas fa-chevron-right"></i> Tentang Kami
+                        </a></li>
+                    <li><a href="tentang-kami.html#visi-misi" class="footer-link footer-link--child">
+                            <i class="fas fa-minus"></i> Visi &amp; Misi
+                        </a></li>
+                    <li><a href="tentang-kami.html#sejarah" class="footer-link footer-link--child">
+                            <i class="fas fa-minus"></i> Sejarah
+                        </a></li>
+                    <li><a href="tentang-kami.html#fasilitas" class="footer-link footer-link--child">
+                            <i class="fas fa-minus"></i> Fasilitas
+                        </a></li>
+                </ul>
+
+                <h4 class="footer-col-title" style="margin-top: 28px;">Jenjang Pendidikan</h4>
+                <ul class="footer-links">
+                    <li><a href="nursery.html" class="footer-link footer-link--parent">
+                            <i class="fas fa-chevron-right"></i> Jenjang Pendidikan
+                        </a></li>
+                    <li><a href="tk.html" class="footer-link footer-link--child">
+                            <i class="fas fa-minus"></i> TK
+                        </a></li>
+                    <li><a href="sd.html" class="footer-link footer-link--child">
+                            <i class="fas fa-minus"></i> SD
+                        </a></li>
+                    <li><a href="smp.html" class="footer-link footer-link--child">
+                            <i class="fas fa-minus"></i> SMP
+                        </a></li>
+                </ul>
+            </div>
+
+            <!-- ── Col 3: Portal & Info ── -->
+            <div class="footer-col">
+                <h4 class="footer-col-title">Portal</h4>
+                <ul class="footer-links">
+                    <li><a href="portal-guru.html" class="footer-link footer-link--parent">
+                            <i class="fas fa-chevron-right"></i> Portal Guru
+                        </a></li>
+                    <li><a href="login.html" class="footer-link footer-link--parent">
+                            <i class="fas fa-chevron-right"></i> Portal Siswa
+                        </a></li>
+                </ul>
+
+                <h4 class="footer-col-title" style="margin-top: 28px;">Informasi</h4>
+                <ul class="footer-links">
+                    <li><a href="pendaftaran.html" class="footer-link footer-link--parent">
+                            <i class="fas fa-chevron-right"></i> Pendaftaran
+                        </a></li>
+                    <li><a href="kalender-akademik.html" class="footer-link footer-link--parent">
+                            <i class="fas fa-chevron-right"></i> Kalender Akademik
+                        </a></li>
+                    <li><a href="berita.html" class="footer-link footer-link--parent">
+                            <i class="fas fa-chevron-right"></i> Berita
+                        </a></li>
+                </ul>
+            </div>
+
+            <!-- ── Col 4: Contact ── -->
+            <div class="footer-col footer-col--contact">
+                <h4 class="footer-col-title">Hubungi Kami</h4>
+
+                <ul class="footer-contact-list">
+                    <li class="footer-contact-item">
+                        <div class="footer-contact-icon"><i class="fas fa-location-dot"></i></div>
+                        <p>Jl. Komplek Green Garden,<br>Kedoya Selatan, Kebon Jeruk<br>Jakarta Barat 11520</p>
+                    </li>
+                    <li class="footer-contact-item">
+                        <div class="footer-contact-icon"><i class="fas fa-phone"></i></div>
+                        <p>021 – 580 4058</p>
+                    </li>
+                    <li class="footer-contact-item">
+                        <div class="footer-contact-icon"><i class="fas fa-clock"></i></div>
+                        <p>Senin – Jumat<br>06.00 – 15.00 WIB</p>
+                    </li>
+                    <li class="footer-contact-item">
+                        <div class="footer-contact-icon"><i class="fas fa-envelope"></i></div>
+                        <p>info@sstandreas.sch.id</p>
+                    </li>
+                </ul>
+
+                <a href="pendaftaran.html" class="footer-cta-btn">
+                    Daftar Sekarang <i class="fas fa-paper-plane"></i>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- ── Divider ── -->
+        <div class="footer-divider"></div>
+
+        <!-- ── Bottom bar ── -->
+        <div class="footer-bottom">
+            <p class="footer-copyright">© 2026 Sekolah Santo Andreas. All Rights Reserved.</p>
+            <p class="footer-credit"><i class="fas fa-code"></i> Made by Raylika L.</p>
+        </div>
+
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        document.querySelectorAll(".reg-expand-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const targetId = btn.dataset.target;
+                const details = document.getElementById(targetId);
+                const icon = btn.querySelector(".reg-expand-icon i");
+                const isOpen = details.classList.contains("reg-details--open");
+
+                // Close all first
+                document.querySelectorAll(".reg-details--open").forEach(d => {
+                    d.classList.remove("reg-details--open");
+                    d.style.maxHeight = "0";
+                });
+                document.querySelectorAll(".reg-expand-btn").forEach(b => {
+                    b.setAttribute("aria-expanded", "false");
+                    b.classList.remove("reg-expand-btn--active");
+                    b.querySelector(".reg-expand-icon i").style.transform = "";
+                });
+
+                if (!isOpen) {
+                    details.classList.add("reg-details--open");
+                    details.style.maxHeight = details.scrollHeight + 40 + "px";
+                    btn.setAttribute("aria-expanded", "true");
+                    btn.classList.add("reg-expand-btn--active");
+                    icon.style.transform = "rotate(180deg)";
+                    setTimeout(() => details.scrollIntoView({ behavior: "smooth", block: "nearest" }), 300);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Student Hub | Sekolah Santo Andreas</title>
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            background: #f0f7ff;
+            color: #1a2c3e;
+            padding: 24px 20px 60px;
+        }
+
+        /* main container */
+        .hub-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* header */
+        .hub-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+            border-bottom: 3px solid #0a5c8e;
+            padding-bottom: 16px;
+        }
+
+        .title-section h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0a3b5c;
+            letter-spacing: -0.3px;
+        }
+
+        .title-section h1 i {
+            color: #ffd966;
+            margin-right: 12px;
+        }
+
+        .title-section p {
+            color: #2c6280;
+            font-weight: 500;
+            margin-top: 6px;
+        }
+
+        .badge-date {
+            background: #e9f2fa;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #0a5c8e;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .badge-date i {
+            margin-right: 8px;
+            color: #ffd966;
+        }
+
+        /* two columns grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 28px;
+        }
+
+        /* ========== CALENDAR SECTION ========== */
+        .calendar-card {
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.2s;
+            border: 1px solid rgba(10, 92, 142, 0.15);
+        }
+
+        .calendar-header {
+            background: #ffffff;
+            padding: 20px 24px 8px 24px;
+            border-bottom: 2px solid #eef2f8;
+        }
+
+        .calendar-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .month-year {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #0a3b5c;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            background: #eef3fc;
+            border: none;
+            font-size: 1.2rem;
+            padding: 8px 18px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #0a5c8e;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover {
+            background: #d4e3f5;
+            transform: scale(0.97);
+        }
+
+        .add-event-btn {
+            background: #0a5c8e;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-family: 'Segoe UI', sans-serif;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 6px rgba(10, 92, 142, 0.2);
+        }
+
+        .add-event-btn:hover {
+            background: #0e4870;
+            transform: translateY(-2px);
+        }
+
+        /* calendar grid */
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            background: #f8fbfe;
+            padding: 12px 0;
+            text-align: center;
+            font-weight: 700;
+            color: #2c6280;
+            border-bottom: 1px solid #e2edf7;
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            background: white;
+        }
+
+        .cal-day {
+            min-height: 100px;
+            border: 1px solid #eef2f8;
+            padding: 8px 6px;
+            transition: background 0.1s;
+            background: white;
+            vertical-align: top;
+            position: relative;
+        }
+
+        .cal-day.today {
+            background: #fff9e8;
+            border: 2px solid #ffd966;
+        }
+
+        .day-number {
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-block;
+            background: #f0f5fb;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 30px;
+            margin-bottom: 6px;
+            color: #1a5d7d;
+        }
+
+        .today .day-number {
+            background: #ffd966;
+            color: #1e3b4f;
+        }
+
+        .event-badge {
+            background: #eaf4ff;
+            border-left: 4px solid #0a5c8e;
+            font-size: 0.7rem;
+            padding: 4px 6px;
+            margin-top: 4px;
+            border-radius: 12px;
+            font-weight: 500;
+            color: #0a3b5c;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: 0.1s;
+            word-break: break-word;
+        }
+
+        .event-badge i {
+            font-size: 0.65rem;
+            color: #ffd966;
+        }
+
+        .event-badge.homework {
+            border-left-color: #ff9f4a;
+            background: #fff2e5;
+        }
+
+        .event-badge.exam {
+            border-left-color: #e65c4f;
+            background: #ffeae7;
+        }
+
+        .more-events {
+            font-size: 0.65rem;
+            color: #0a5c8e;
+            font-weight: 600;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        .empty-day {
+            color: #bbb;
+        }
+
+        /* modal add event */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.2s;
+        }
+
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-container {
+            background: white;
+            max-width: 460px;
+            width: 90%;
+            border-radius: 36px;
+            padding: 28px 28px 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .modal-container h3 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #0a3b5c;
+            margin-bottom: 8px;
+        }
+
+        .modal-container h3 i {
+            color: #ffd966;
+            margin-right: 8px;
+        }
+
+        .form-group {
+            margin: 18px 0;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+            color: #1e4a6e;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 20px;
+            border: 1px solid #cbdde9;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0a5c8e;
+            box-shadow: 0 0 0 3px rgba(10, 92, 142, 0.2);
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .btn-primary {
+            background: #0a5c8e;
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            background: #e2eaf1;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 40px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        /* ========== COMMENT SECTION ========== */
+        .comment-card {
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(10, 92, 142, 0.15);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            height: fit-content;
+        }
+
+        .comment-header {
+            padding: 20px 24px 8px;
+            border-bottom: 2px solid #eef2f8;
+        }
+
+        .comment-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0a3b5c;
+        }
+
+        .comment-header h2 i {
+            color: #ffd966;
+            margin-right: 10px;
+        }
+
+        .comment-list {
+            padding: 16px 20px;
+            max-height: 460px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .comment-item {
+            background: #f9fcff;
+            padding: 14px 16px;
+            border-radius: 24px;
+            border-left: 4px solid #ffd966;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+        }
+
+        .comment-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #2c6280;
+            margin-bottom: 8px;
+        }
+
+        .comment-author i {
+            margin-right: 5px;
+            color: #ffd966;
+        }
+
+        .comment-text {
+            font-size: 0.9rem;
+            line-height: 1.45;
+            color: #1f3e54;
+        }
+
+        .comment-form-area {
+            padding: 16px 20px 24px;
+            border-top: 1px solid #e6edf4;
+            background: #ffffff;
+        }
+
+        .comment-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .comment-input-group input {
+            padding: 12px 16px;
+            border-radius: 60px;
+            border: 1px solid #cbdde9;
+            font-family: 'Segoe UI', sans-serif;
+            background: white;
+        }
+
+        .comment-input-group textarea {
+            padding: 12px 16px;
+            border-radius: 24px;
+            border: 1px solid #cbdde9;
+            font-family: 'Segoe UI', sans-serif;
+            resize: vertical;
+        }
+
+        .post-comment-btn {
+            background: #0a5c8e;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            align-self: flex-end;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .empty-comments {
+            text-align: center;
+            color: #8ba9c2;
+            padding: 28px;
+            font-style: italic;
+        }
+
+        /* responsive */
+        @media (max-width: 880px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .cal-day {
+                min-height: 70px;
+            }
+
+            .event-badge {
+                font-size: 0.6rem;
+            }
+        }
+
+        footer {
+            margin-top: 48px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #6f94ae;
+            border-top: 1px solid #cde1ef;
+            padding-top: 28px;
+        }
+
+        .highlight {
+            color: #ffd966;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hub-container">
+        <div class="hub-header">
+            <div class="title-section">
+                <h1><i class="fas fa-graduation-cap"></i> Student Hub · Santo Andreas</h1>
+                <p>Kalender tugas & ujian • ruang diskusi teman</p>
+            </div>
+            <div class="badge-date">
+                <i class="fas fa-calendar-alt"></i> <span id="currentDateDisplay"></span>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- CALENDAR COLUMN -->
+            <div class="calendar-card">
+                <div class="calendar-header">
+                    <div class="calendar-nav">
+                        <div class="month-year" id="monthYearDisplay">April 2025</div>
+                        <div class="nav-buttons">
+                            <button class="nav-btn" id="prevMonthBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                            <button class="nav-btn" id="nextMonthBtn">Next <i class="fas fa-chevron-right"></i></button>
+                            <button class="add-event-btn" id="openAddEventModalBtn"><i class="fas fa-plus-circle"></i>
+                                Add Event</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="calendar-weekdays">
+                    <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                </div>
+                <div id="calendarDaysContainer" class="calendar-days"></div>
+            </div>
+
+            <!-- COMMENT SECTION COLUMN -->
+            <div class="comment-card">
+                <div class="comment-header">
+                    <h2><i class="fas fa-comments"></i> Diskusi & Komentar</h2>
+                    <p style="font-size:0.8rem; color:#567e9e;">Tanyakan soal, beri saran, atau diskusi tugas</p>
+                </div>
+                <div id="commentListContainer" class="comment-list">
+                    <!-- comments will be injected dynamically -->
+                    <div class="empty-comments"><i class="far fa-comment-dots"></i> Belum ada komentar. Jadilah yang
+                        pertama!</div>
+                </div>
+                <div class="comment-form-area">
+                    <div class="comment-input-group">
+                        <input type="text" id="commentAuthorInput" placeholder="Nama kamu (contoh: Sarah Kelas 7)"
+                            value="Siswa">
+                        <textarea id="commentTextInput" rows="2"
+                            placeholder="Tulis komentar atau diskusi..."></textarea>
+                        <button id="postCommentBtn" class="post-comment-btn"><i class="fas fa-paper-plane"></i> Kirim
+                            Komentar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <i class="fas fa-chalkboard-user"></i> Hubungan Antar Guru & Siswa · Event di kalender bersifat universal
+            (semua mata pelajaran)
+        </footer>
+    </div>
+
+    <!-- MODAL ADD EVENT -->
+    <div id="eventModal" class="modal-overlay">
+        <div class="modal-container">
+            <h3><i class="fas fa-calendar-plus"></i> Tambah Event Baru</h3>
+            <p style="margin-bottom: 12px; color:#4a708b;">Guru dapat menambahkan tugas / ujian</p>
+            <div class="form-group">
+                <label>Judul Event *</label>
+                <input type="text" id="eventTitle" placeholder="Contoh: UTS Matematika, Tugas IPA Bab 3">
+            </div>
+            <div class="form-group">
+                <label>Tanggal *</label>
+                <input type="date" id="eventDate">
+            </div>
+            <div class="form-group">
+                <label>Tipe Event</label>
+                <select id="eventType">
+                    <option value="Homework">📚 Tugas / Homework</option>
+                    <option value="Exam">📝 Ujian / Exam</option>
+                    <option value="General">📌 Umum / Pengumuman</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Deskripsi (opsional)</label>
+                <textarea id="eventDesc" rows="2" placeholder="Detail tambahan ..."></textarea>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn-secondary" id="closeModalBtn">Batal</button>
+                <button class="btn-primary" id="saveEventBtn">Simpan Event</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ------------------------------
+        // 1. CALENDAR LOGIC + EVENTS STORAGE (localStorage)
+        // ------------------------------
+        let currentDate = new Date();
+        let currentYear = currentDate.getFullYear();
+        let currentMonth = currentDate.getMonth();  // 0-index
+
+        // Events array: each event = { id, title, date (YYYY-MM-DD), type, description }
+        let events = [];
+
+        // Load events from localStorage
+        function loadEventsFromStorage() {
+            const stored = localStorage.getItem("studentHub_events");
+            if (stored) {
+                events = JSON.parse(stored);
+            } else {
+                // seed default events (so calendar looks alive)
+                const today = new Date();
+                const yyyy = today.getFullYear();
+                const mm = String(today.getMonth() + 1).padStart(2, '0');
+                const dd = String(today.getDate()).padStart(2, '0');
+                const nextWeek = new Date(today);
+                nextWeek.setDate(today.getDate() + 5);
+                const y2 = nextWeek.getFullYear();
+                const m2 = String(nextWeek.getMonth() + 1).padStart(2, '0');
+                const d2 = String(nextWeek.getDate()).padStart(2, '0');
+                events = [
+                    { id: Date.now() + 1, title: "Tugas Matematika: Latihan Persamaan", date: `${yyyy}-${mm}-${dd}`, type: "Homework", description: "Kerjakan 10 soal cerita" },
+                    { id: Date.now() + 2, title: "Ulangan Harian Bahasa Inggris", date: `${yyyy}-${mm}-${dd}`, type: "Exam", description: "Bab Present Tense" },
+                    { id: Date.now() + 3, title: "Proyek IPA: Siklus Air", date: `${y2}-${m2}-${d2}`, type: "Homework", description: "Buat poster + presentasi" },
+                    { id: Date.now() + 4, title: "Try Out Kelas 9", date: `${y2}-${m2}-${d2}`, type: "Exam", description: "Mata pelajaran umum" }
+                ];
+                saveEventsToStorage();
+            }
+        }
+
+        function saveEventsToStorage() {
+            localStorage.setItem("studentHub_events", JSON.stringify(events));
+        }
+
+        // helper: format YYYY-MM-DD from date object
+        function formatYMD(date) {
+            let y = date.getFullYear();
+            let m = String(date.getMonth() + 1).padStart(2, '0');
+            let d = String(date.getDate()).padStart(2, '0');
+            return `${y}-${m}-${d}`;
+        }
+
+        // get events for a specific date (YYYY-MM-DD)
+        function getEventsForDate(dateStr) {
+            return events.filter(ev => ev.date === dateStr);
+        }
+
+        // render calendar based on currentMonth/currentYear
+        function renderCalendar() {
+            const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+            const startWeekday = firstDayOfMonth.getDay(); // 0 = sunday
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            const todayStr = formatYMD(new Date());
+
+            let calendarHTML = '';
+            let dayCounter = 1;
+            const totalCells = 42; // 6 rows
+
+            for (let i = 0; i < totalCells; i++) {
+                let cellDate = null;
+                let isCurrentMonth = false;
+                if (i >= startWeekday && dayCounter <= daysInMonth) {
+                    cellDate = new Date(currentYear, currentMonth, dayCounter);
+                    isCurrentMonth = true;
+                    dayCounter++;
+                }
+
+                let cellDateStr = '';
+                let dayNumber = '';
+                let isToday = false;
+                let eventsForDay = [];
+
+                if (cellDate) {
+                    cellDateStr = formatYMD(cellDate);
+                    dayNumber = cellDate.getDate();
+                    isToday = (cellDateStr === todayStr);
+                    eventsForDay = getEventsForDate(cellDateStr);
+                }
+
+                let cellClass = 'cal-day';
+                if (!isCurrentMonth) cellClass += ' empty-day';
+                if (isToday) cellClass += ' today';
+
+                let eventsHTML = '';
+                // show first 2 events
+                const visibleEvents = eventsForDay.slice(0, 2);
+                visibleEvents.forEach(ev => {
+                    let typeClass = '';
+                    let icon = 'fa-book-open';
+                    if (ev.type === 'Homework') { typeClass = 'homework'; icon = 'fa-pen-ruler'; }
+                    else if (ev.type === 'Exam') { typeClass = 'exam'; icon = 'fa-clipboard-list'; }
+                    else { icon = 'fa-bullhorn'; }
+                    eventsHTML += `<div class="event-badge ${typeClass}" title="${ev.description || ev.title}"><i class="fas ${icon}"></i> ${ev.title.length > 18 ? ev.title.substring(0, 16) + '..' : ev.title}</div>`;
+                });
+                if (eventsForDay.length > 2) {
+                    eventsHTML += `<div class="more-events" data-date="${cellDateStr}" data-events='${JSON.stringify(eventsForDay.slice(2))}'>+${eventsForDay.length - 2} lainnya</div>`;
+                }
+
+                calendarHTML += `
+        <div class="${cellClass}">
+          <div class="day-number">${isCurrentMonth ? dayNumber : ''}</div>
+          ${eventsHTML}
+        </div>
+      `;
+            }
+
+            document.getElementById('calendarDaysContainer').innerHTML = calendarHTML;
+            document.getElementById('monthYearDisplay').innerText = new Date(currentYear, currentMonth).toLocaleDateString('id-ID', { month: 'long', year: 'numeric' });
+
+            // Attach event listeners to "more events" tooltip (optional alert)
+            document.querySelectorAll('.more-events').forEach(el => {
+                el.addEventListener('click', (e) => {
+                    const dateVal = el.getAttribute('data-date');
+                    const extraEvents = JSON.parse(el.getAttribute('data-events'));
+                    let msg = `📅 Event lain pada ${dateVal}:\n`;
+                    extraEvents.forEach(ev => {
+                        msg += `- ${ev.title} (${ev.type})\n`;
+                    });
+                    alert(msg);
+                    e.stopPropagation();
+                });
+            });
+        }
+
+        // add new event (called from modal)
+        function addEvent(title, date, type, description) {
+            if (!title || !date) return false;
+            const newEvent = {
+                id: Date.now(),
+                title: title.trim(),
+                date: date,
+                type: type,
+                description: description || ''
+            };
+            events.push(newEvent);
+            saveEventsToStorage();
+            renderCalendar();
+            return true;
+        }
+
+        // change month
+        function prevMonth() {
+            if (currentMonth === 0) {
+                currentMonth = 11;
+                currentYear--;
+            } else {
+                currentMonth--;
+            }
+            renderCalendar();
+        }
+        function nextMonth() {
+            if (currentMonth === 11) {
+                currentMonth = 0;
+                currentYear++;
+            } else {
+                currentMonth++;
+            }
+            renderCalendar();
+        }
+
+        // ------------------------------
+        // 2. COMMENT SECTION LOGIC (localStorage)
+        // ------------------------------
+        let comments = [];
+
+        function loadCommentsFromStorage() {
+            const storedComments = localStorage.getItem("studentHub_comments");
+            if (storedComments) {
+                comments = JSON.parse(storedComments);
+            } else {
+                // default seed comments
+                comments = [
+                    { id: 1, author: "Alicia (Kelas 8)", text: "Untuk tugas Matematika halaman 34, apakah dikumpulkan besok?", createdAt: new Date().toISOString() },
+                    { id: 2, author: "Pak Budi (Guru)", text: "Besok ada jadwal remedial fisika jam 13.00 ya.", createdAt: new Date().toISOString() }
+                ];
+                saveCommentsToStorage();
+            }
+            renderComments();
+        }
+
+        function saveCommentsToStorage() {
+            localStorage.setItem("studentHub_comments", JSON.stringify(comments));
+        }
+
+        function addComment(author, text) {
+            if (!author.trim()) author = "Anonymous";
+            if (!text.trim()) return false;
+            const newComment = {
+                id: Date.now(),
+                author: author.trim(),
+                text: text.trim(),
+                createdAt: new Date().toISOString()
+            };
+            comments.unshift(newComment); // newest first
+            saveCommentsToStorage();
+            renderComments();
+            return true;
+        }
+
+        function renderComments() {
+            const container = document.getElementById('commentListContainer');
+            if (!container) return;
+            if (comments.length === 0) {
+                container.innerHTML = `<div class="empty-comments"><i class="far fa-comment-dots"></i> Belum ada komentar. Mulai diskusi!</div>`;
+                return;
+            }
+            let html = '';
+            comments.forEach(comment => {
+                const dateObj = new Date(comment.createdAt);
+                const formattedTime = dateObj.toLocaleDateString('id-ID', { hour: '2-digit', minute: '2-digit' });
+                html += `
+        <div class="comment-item">
+          <div class="comment-meta">
+            <span class="comment-author"><i class="fas fa-user-circle"></i> ${escapeHtml(comment.author)}</span>
+            <span style="font-size:0.7rem;"><i class="far fa-clock"></i> ${formattedTime}</span>
+          </div>
+          <div class="comment-text">${escapeHtml(comment.text)}</div>
+        </div>
+      `;
+            });
+            container.innerHTML = html;
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, function (m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function (c) {
+                return c;
+            });
+        }
+
+        // 3. MODAL HANDLERS
+        const modal = document.getElementById('eventModal');
+        const openBtn = document.getElementById('openAddEventModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const saveEventBtn = document.getElementById('saveEventBtn');
+
+        function openModal() { modal.classList.add('active'); }
+        function closeModal() { modal.classList.remove('active'); }
+
+        function handleSaveEvent() {
+            const title = document.getElementById('eventTitle').value;
+            let date = document.getElementById('eventDate').value;
+            const type = document.getElementById('eventType').value;
+            const desc = document.getElementById('eventDesc').value;
+            if (!title) {
+                alert("Judul event harus diisi!");
+                return;
+            }
+            if (!date) {
+                alert("Pilih tanggal terlebih dahulu!");
+                return;
+            }
+            addEvent(title, date, type, desc);
+            closeModal();
+            document.getElementById('eventTitle').value = '';
+            document.getElementById('eventDate').value = '';
+            document.getElementById('eventDesc').value = '';
+        }
+
+        // set default date field to today
+        function setDefaultDateInput() {
+            const todayInput = formatYMD(new Date());
+            document.getElementById('eventDate').value = todayInput;
+        }
+
+        // live date display
+        function updateCurrentDate() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('currentDateDisplay').innerText = now.toLocaleDateString('id-ID', options);
+        }
+
+        // COMMENT POST
+        const postBtn = document.getElementById('postCommentBtn');
+        const authorInput = document.getElementById('commentAuthorInput');
+        const textInput = document.getElementById('commentTextInput');
+
+        function handlePostComment() {
+            let author = authorInput.value.trim();
+            if (author === "") author = "Siswa";
+            const text = textInput.value.trim();
+            if (text === "") {
+                alert("Tulis komentar terlebih dahulu!");
+                return;
+            }
+            addComment(author, text);
+            textInput.value = '';
+            authorInput.value = author; // keep author name
+        }
+
+        // Init all
+        function init() {
+            loadEventsFromStorage();
+            loadCommentsFromStorage();
+            renderCalendar();
+            updateCurrentDate();
+            setDefaultDateInput();
+
+            // month buttons
+            document.getElementById('prevMonthBtn').addEventListener('click', prevMonth);
+            document.getElementById('nextMonthBtn').addEventListener('click', nextMonth);
+            openBtn.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
+            saveEventBtn.addEventListener('click', handleSaveEvent);
+            postBtn.addEventListener('click', handlePostComment);
+            window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        }
+
+        init();
+    </script>
+</body>
+
+</html>
